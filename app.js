@@ -6,10 +6,10 @@ const quantityInput = document.getElementById('quantity');
 const tableBody = document.querySelector('table#my-table tbody');
 let data = [];
 
-// https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143
+// https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497
 window.addEventListener('DOMContentLoaded', () => {
   axios
-    .get('https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143/StoreItemInfo')
+    .get('https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497/StoreItemInfo')
     .then((response) => {
       console.log(response);
       data = response.data;
@@ -29,7 +29,7 @@ form.addEventListener('submit', function (e) {
     ItemQuantity: quantityInput.value,
   };
   axios
-    .post('https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143/StoreItemInfo', userData)
+    .post('https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497/StoreItemInfo', userData)
     .then((response) => {
       console.log(response);
       data.push(response.data);
@@ -78,7 +78,7 @@ function displayUserData() {
       const updatedQuantity = parseInt(userData.ItemQuantity) - 1;
 
       axios
-        .put(`https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143/StoreItemInfo/${userId}`, {
+        .patch(`https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497/StoreItemInfo/${userId}`, {
           ...userData,
           ItemQuantity: updatedQuantity,
         })
@@ -98,7 +98,7 @@ function displayUserData() {
         const updatedQuantity = parseInt(userData.ItemQuantity) - 2;
 
         axios
-          .put(`https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143/StoreItemInfo/${userId}`, {
+          .patch(`https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497/StoreItemInfo/${userId}`, {
             ...userData,
             ItemQuantity: updatedQuantity,
           })
@@ -118,7 +118,7 @@ function displayUserData() {
         const updatedQuantity = parseInt(userData.ItemQuantity) - 3;
 
         axios
-          .put(`https://crudcrud.com/api/cdb28de4c91f418fbe5bbadb5dc32143/StoreItemInfo/${userId}`, {
+          .patch(`https://crudcrud.com/api/bce055b7c4f3426b861fdc36f84a2497/StoreItemInfo/${userId}`, {
             ...userData,
             ItemQuantity: updatedQuantity,
           })
